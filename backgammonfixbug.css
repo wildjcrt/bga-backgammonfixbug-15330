@@ -1,0 +1,688 @@
+/**
+ *------
+ * BGA framework: © Gregory Isabelli <gisabelli@boardgamearena.com> & Emmanuel Colin <ecolin@boardgamearena.com>
+ * backgammon implementation : © <Your name here> <Your email address here>
+ *
+ * This code has been produced on the BGA studio platform for use on http://boardgamearena.com.
+ * See http://en.boardgamearena.com/#!doc/Studio for more information.
+ * -----
+ *
+ * backgammon.css
+ *
+ * backgammon stylesheet
+ *
+ */
+
+/*
+    This is the CSS stylesheet of your game User Interface.
+
+    Styles defined on this file will be applied to the HTML elements you define in your
+    HTML template (backgammon.tpl), and to HTML elements you create dynamically
+    (in backgammon.js).
+
+    Usually, you are using CSS to:
+
+    1) define the overall layout of your game
+        (ex: place the board on the top left, place player's hand beside, place the deck on the right, ...).
+
+    2) create your CSS-sprites:
+        All images of your games should be gathered into a small number of image files. Then, using
+        background-image and background-position CSS properties, you create HTML blocks that can
+        display these images correctly (see example below).
+
+    3) ... anything else:
+        It is really easy to add and remove CSS classes dynamically from your Javascript with
+        dojo.addClass and dojo.removeClass. It is also easy to check if an element has a class
+        (dojo.hasClass) or to get all elements with a specific class (dojo.query). This is why,
+        very often, using CSS classes for the logic of your user interface allow you to do complex
+        thing easily.
+
+
+     Note: on the production platform, this file will be compressed and comments will be removed.
+           Consequently, don't hesitate to put as many comments as necessary.
+*/
+
+@import url(../../../css/csslayer.css); /* Note: you must not use any @import directive other than this one */
+
+
+#game_play_area {
+    /*border: 1px dotted purple;*/
+}
+
+#bg_board {
+    background-image: url( 'img/board.png');
+    background-repeat: no-repeat;
+    height: 652px;
+    width: 595px;
+    float: left;
+    /*margin : 40px 0 40px 40px;*/
+}
+
+.column {
+    height : 160px;
+    width : 32px;
+    /*border : 1px solid black;*/
+    position : absolute;
+}
+
+.column_pit {
+    height : 160px;
+    width : 32px;
+    position : absolute;
+}
+
+.selected_column_bottom {
+    border-bottom: 6px solid #bfdcff;
+    border-radius: 16px;
+}
+
+.selected_column_top {
+    border-top: 6px solid #bfdcff;
+    border-radius: 16px;
+    margin-top : -6px;
+}
+
+.token {
+    height : 160px;
+    width : 32px;
+    position : absolute;
+}
+
+.tokencolor_aa7903 {
+    background-image : url(img/token_yellow.png);
+    background-repeat : no-repeat;
+    cursor: pointer;
+}
+
+.tokencolor_ff0000 {
+    background-image : url(img/token_red.png);
+    background-repeat : no-repeat;
+    cursor: pointer;
+}
+
+.tokencolor_0 {
+    cursor: pointer;
+}
+
+.tokennb_1_top {
+    background-position : 0px -127px;
+}
+
+.tokennb_2_top {
+    background-position : 0px -95px;
+}
+
+.tokennb_3_top {
+    background-position : 0px -63px;
+}
+
+.tokennb_4_top {
+    background-position : 0px -31px;
+}
+
+.tokennb_5_top {
+    background-position : 0px 0px;
+}
+
+.tokennb_6_top {
+    background-position : -34px 0px;
+}
+
+.tokennb_7_top {
+    background-position : -68px 0px;
+}
+
+.tokennb_8_top {
+    background-position : -102px 0px;
+}
+
+.tokennb_9_top {
+    background-position : -136px 0px;
+}
+
+.tokennb_10_top {
+    background-position : -170px 0px;
+}
+
+.tokennb_11_top {
+    background-position : -204px 0px;
+}
+
+.tokennb_12_top {
+    background-position : -238px 0px;
+}
+
+.tokennb_13_top {
+    background-position : -272px 0px;
+}
+
+.tokennb_14_top {
+    background-position : -306px 0px;
+}
+
+.tokennb_15_top {
+    background-position : -340px 0px;
+}
+
+.tokennb_1_bottom {
+    background-position : 0px 127px;
+}
+
+.tokennb_2_bottom {
+    background-position : 0px 95px;
+}
+
+.tokennb_3_bottom {
+    background-position : 0px 63px;
+}
+
+.tokennb_4_bottom {
+    background-position : 0px 31px;
+}
+
+.tokennb_5_bottom {
+    background-position : 0px 0px;
+}
+
+.tokennb_6_bottom {
+    background-position : -36px 0px;
+}
+
+.tokennb_7_bottom {
+    background-position : -70px 0px;
+}
+
+.tokennb_8_bottom {
+    background-position : -104px 0px;
+}
+
+.tokennb_9_bottom {
+    background-position : -138px 0px;
+}
+
+.tokennb_10_bottom {
+    background-position : -172px 0px;
+}
+
+.tokennb_11_bottom {
+    background-position : -206px 0px;
+}
+
+.tokennb_12_bottom {
+    background-position : -240px 0px;
+}
+
+.tokennb_13_bottom {
+    background-position : -274px 0px;
+}
+
+.tokennb_14_bottom {
+    background-position : -308px 0px;
+}
+
+.tokennb_15_bottom {
+    background-position : -342px 0px;
+}
+
+
+/* dices */
+.dice_area {
+    height:40px;
+    width:40px;
+    position : absolute;
+}
+
+.dice {
+    height:40px;
+    width:40px;
+    position : absolute;
+}
+
+.dice_1 {
+    background-image : url('img/sprite_dice1.png');
+    background-repeat : no-repeat;
+}
+
+.dice_2 {
+    background-image : url('img/sprite_dice2.png');
+    background-repeat : no-repeat;
+}
+
+.dice_3 {
+    background-image : url('img/sprite_dice1.png');
+    background-repeat : no-repeat;
+}
+
+.dice_4 {
+    background-image : url('img/sprite_dice2.png');
+    background-repeat : no-repeat;
+}
+
+.dice_1_0 {
+    visibility: hidden;
+}
+
+.dice_1_1 {
+    background-position : 0px -6px;
+}
+
+.dice_1_2 {
+    background-position : 0px -52px;
+}
+
+.dice_1_3 {
+    background-position : 0px -100px;
+}
+
+.dice_1_4 {
+    background-position : 0px -147px;
+}
+
+.dice_1_5 {
+    background-position : 0px -194px;
+}
+
+.dice_1_6 {
+    background-position : 0px -242px;
+}
+
+.dice_2_0 {
+    visibility: hidden;
+}
+
+.dice_2_1 {
+    background-position : 0px -6px;
+}
+
+.dice_2_2 {
+    background-position : 0px -58px;
+}
+
+.dice_2_3 {
+    background-position : 0px -111px;
+}
+
+.dice_2_4 {
+    background-position : 0px -165px;
+}
+
+.dice_2_5 {
+    background-position : 0px -216px;
+}
+
+.dice_2_6 {
+    background-position : 0px -267px;
+}
+
+.dice_3_0 {
+    visibility: hidden;
+}
+
+.dice_3_1 {
+    background-position : 0px -6px;
+}
+
+.dice_3_2 {
+    background-position : 0px -52px;
+}
+
+.dice_3_3 {
+    background-position : 0px -100px;
+}
+
+.dice_3_4 {
+    background-position : 0px -147px;
+}
+
+.dice_3_5 {
+    background-position : 0px -194px;
+}
+
+.dice_3_6 {
+    background-position : 0px -242px;
+}
+
+.dice_4_0 {
+    visibility: hidden;
+}
+
+.dice_4_1 {
+    background-position : 0px -6px;
+}
+
+.dice_4_2 {
+    background-position : 0px -58px;
+}
+
+.dice_4_3 {
+    background-position : 0px -111px;
+}
+
+.dice_4_4 {
+    background-position : 0px -165px;
+}
+
+.dice_4_5 {
+    background-position : 0px -216px;
+}
+
+.dice_4_6 {
+    background-position : 0px -267px;
+}
+
+.dice_usable_0 {
+    opacity:0.5;
+}
+
+.dice_usable_1 {
+
+}
+
+.lighton_dice {
+    border:1px solid #DDDDDD;
+    border-radius: 20px;
+    /*background-color: #eaf8ff;*/
+    background-color: #DDDDDD;
+}
+
+/*hints*/
+.hint {
+    cursor : pointer;
+}
+
+.hint_box {
+    width : 32px;
+    height : 20px;
+    /*border : 1px solid red;*/
+    position : absolute;
+}
+
+.hint-image {
+    width : 32px;
+    height : 20px;
+    background-image : url('img/possible_move.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position : absolute;
+    cursor : pointer;
+}
+
+.hint-closed {
+    width : 32px;
+    height : 20px;
+    background-image : url('img/closed.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position : absolute;
+}
+
+.hint-empty {
+    width : 32px;
+    height : 20px;
+    position : absolute;
+}
+
+/* free */
+
+
+/* free checkers in repository */
+.free_hint_area {
+    height : 160px;
+    width : 32px;
+    position : absolute;
+    cursor: pointer;
+}
+
+.free_repository_area {
+    height : 126px;
+    width : 186px;
+    position : absolute;
+    background-image: url(img/repository.png);
+    background-repeat : no-repeat;
+}
+
+.free_repository_area_top {
+}
+
+
+.free-repository_red {
+    background-image: url(img/token_red_repository.png);
+    height : 100px;
+    width : 160px;
+    position : absolute;
+    background-repeat : no-repeat;
+}
+
+.free-repository_yellow {
+    background-image: url(img/token_yellow_repository.png);
+    height : 100px;
+    width : 160px;
+    position : absolute;
+    background-repeat : no-repeat;
+}
+
+.free_hint_image {
+    background-image : url('img/possible_move_repository.gif');
+    background-repeat: no-repeat;
+    background-position: center center;
+    position : absolute;
+}
+
+/* free repository sprite for top or bottom */
+
+.free_repository_top_token_nb_0 {
+    background-position : -480px -68px;
+}
+
+.free_repository_top_token_nb_1 {
+    background-position : -128px -68px;
+}
+
+
+.free_repository_top_token_nb_2 {
+    background-position : -96px -68px;
+}
+
+
+.free_repository_top_token_nb_3 {
+    background-position : -64px -68px;
+}
+
+
+.free_repository_top_token_nb_4 {
+    background-position : -32px -68px;
+}
+
+
+.free_repository_top_token_nb_5 {
+    background-position : -0px -68px;
+}
+
+
+.free_repository_top_token_nb_6 {
+    background-position : -128px -32px;
+}
+
+
+.free_repository_top_token_nb_7 {
+    background-position : -96px -32px;
+}
+
+
+.free_repository_top_token_nb_8 {
+    background-position : -64px -32px;
+}
+
+
+.free_repository_top_token_nb_9 {
+    background-position : -32px -32px;
+}
+
+
+.free_repository_top_token_nb_10 {
+    background-position : -0px -32px;
+}
+
+
+.free_repository_top_token_nb_11 {
+    background-position : -128px 0;
+}
+
+
+.free_repository_top_token_nb_12 {
+    background-position : -96px 0;
+}
+
+
+.free_repository_top_token_nb_13 {
+    background-position : -64px 0;
+}
+
+
+.free_repository_top_token_nb_14 {
+    background-position : -32px 0;
+}
+
+
+.free_repository_top_token_nb_15 {
+    background-position : 0 0;
+}
+
+
+.free_repository_bottom_token_nb_0 {
+    background-position : -480px 0px;
+}
+
+
+.free_repository_bottom_token_nb_1 {
+    background-position : -128px -68px;
+}
+
+
+.free_repository_bottom_token_nb_2 {
+    background-position : -96px -68px;
+}
+
+
+.free_repository_bottom_token_nb_3 {
+    background-position : -64px -68px;
+}
+
+
+.free_repository_bottom_token_nb_4 {
+    background-position : -32px -68px;
+}
+
+
+.free_repository_bottom_token_nb_5 {
+    background-position : -0px -68px;
+}
+
+
+.free_repository_bottom_token_nb_6 {
+    background-position : -128px -32px;
+}
+
+
+.free_repository_bottom_token_nb_7 {
+    background-position : -96px -32px;
+}
+
+
+.free_repository_bottom_token_nb_8 {
+    background-position : -64px -32px;
+}
+
+
+.free_repository_bottom_token_nb_9 {
+    background-position : -32px -32px;
+}
+
+
+.free_repository_bottom_token_nb_10 {
+    background-position : -0px -32px;
+}
+
+
+.free_repository_bottom_token_nb_11 {
+    background-position : -128px 0;
+}
+
+
+.free_repository_bottom_token_nb_12 {
+    background-position : -96px 0;
+}
+
+
+.free_repository_bottom_token_nb_13 {
+    background-position : -64px 0;
+}
+
+
+.free_repository_bottom_token_nb_14 {
+    background-position : -32px 0;
+}
+
+
+.free_repository_bottom_token_nb_15 {
+    background-position : 0 0;
+}
+
+
+/* the path to go to repository in the player panel */
+
+.icon_path_to_go {
+    width : 32px;
+    height : 32px;
+    display: inline-block;
+    position: relative;
+    background-repeat: no-repeat;
+    margin-right: 10px;
+    vertical-align: middle;
+    text-align : left;
+}
+
+#icon-path-to-go_ff0000_my {
+    background-image : url(img/pathRedActivePlayer.png);
+}
+
+#icon-path-to-go_ff0000_other {
+    background-image : url(img/pathRedOtherPlayer.png);
+}
+
+#icon-path-to-go_aa7903_my {
+    background-image : url(img/pathYellowActivePlayer.png);
+}
+
+#icon-path-to-go_aa7903_other {
+    background-image : url(img/pathYellowOtherPlayer.png);
+}
+
+.anim_token_red {
+    background-image: url(img/one_token_red.png);
+    height:32px;
+    width:32px;
+}
+
+.anim_token_yellow {
+    background-image: url(img/one_token_yellow.png);
+    height:32px;
+    width:32px;
+}
+
+
+.block_checker_anim {
+    height:32px;
+    width: 32px;
+    /*border:1px solid magenta;*/
+    position : absolute;
+}
+
+
+.block_checker_anim_empty {
+    height:32px;
+    width: 32px;
+    /*border:1px solid green;*/
+    position : absolute;
+}
+
