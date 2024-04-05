@@ -66,5 +66,5 @@ class action_backgammon extends APP_GameAction
     }
 
 }
-  
+
 

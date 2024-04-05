@@ -13,7 +13,7 @@
  * This is the main file for your game logic.
  *
  * In this PHP file, you are going to defines the rules of the game.
- * 
+ *
  */
 /*
 class backgammon
@@ -163,7 +163,7 @@ class backgammon extends Table
 
     /*
         setupNewGame:
-        
+
         This method is called only once, when a new game is launched.
         In this method, you must setup the game according to the game rules, so that
         the game is ready to be played.
@@ -300,10 +300,10 @@ class backgammon extends Table
     }
 
     /*
-        getAllDatas: 
-        
+        getAllDatas:
+
         Gather all informations about current game situation (visible by the current player).
-        
+
         The method is called each time the game interface is displayed to a player, ie:
         _ when the game starts
         _ when a player refreshes the game page (F5)
@@ -349,12 +349,12 @@ class backgammon extends Table
 
     /*
         getGameProgression:
-        
+
         Compute and return the current game progression.
         The number returned must be an integer beween 0 (=the game just started) and
         100 (= the game is finished or almost finished).
-    
-        This method is called each time we are in a game state with the "updateGameProgression" property set to true 
+
+        This method is called each time we are in a game state with the "updateGameProgression" property set to true
         (see states.inc.php)
     */
     /**
@@ -388,7 +388,7 @@ class backgammon extends Table
 
 //////////////////////////////////////////////////////////////////////////////
 //////////// Utility functions
-////////////    
+////////////
 
     // Get the complete board with a double associative array
     function getBoard()
@@ -683,7 +683,7 @@ class backgammon extends Table
                     if ($moveInfo['success']) {
                         return true;
                     }
-                }    
+                }
             }
         }
         return false;
@@ -934,7 +934,7 @@ class backgammon extends Table
 
 //////////////////////////////////////////////////////////////////////////////
 //////////// Player actions
-//////////// 
+////////////
 
     /*
         Each time a player is doing some game action, one of the methods below is called.
@@ -1039,7 +1039,7 @@ class backgammon extends Table
                      * if the colupmn is the "bar" the name of the column is "bar" instead of a number
                      * The "bar" is the middle column where eaten checker go waiting to be free
                      * e.g. hanakuso0 move a checker from bar to column 5
-                     */                    
+                     */
                     $textMessage = clienttranslate( '${player_name} moves a checker from the bar to column ${destColTranslated} ${additional}' );
                 } else {
                 /*
@@ -1048,7 +1048,7 @@ class backgammon extends Table
                  * Keep '${player_name}'. as it is at the beginning of the line
                  * $startColTranslated is the number of the column or "bar", just use as it is in the text : $startColTranslated
                  * e.g. hanakuso0 move a checker column 8 bar to column 5
-                 */                    
+                 */
                     $textMessage = clienttranslate( '${player_name} moves a checker from column ${startColTranslated} to column ${destColTranslated} ${additional}' );
                 }
             }
@@ -1178,20 +1178,20 @@ class backgammon extends Table
     */
 
     /*
-    
+
     Example for game state "MyGameState":
-    
+
     function argMyGameState()
     {
         // Get some values from the current game situation in database...
-    
+
         // return values:
         return array(
             'variable1' => $value1,
             'variable2' => $value2,
             ...
         );
-    }    
+    }
     */
 
     /**
@@ -1251,16 +1251,16 @@ class backgammon extends Table
     */
 
     /*
-    
+
     Example for game state "MyGameState":
 
     function stMyGameState()
     {
         // Do some stuff ...
-        
+
         // (very often) go to another gamestate
         $this->gamestate->nextState( 'some_gamestate_transition' );
-    }    
+    }
     */
     /**
      *
@@ -1371,7 +1371,7 @@ class backgammon extends Table
 
     /*
         zombieTurn:
-        
+
         This method is called each time it is the turn of a player who has quit the game (= "zombie" player).
         You can do whatever you want in order to make sure the turn of this player ends appropriately
         (ex: pass).

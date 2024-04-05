@@ -73,8 +73,8 @@ $gameinfos = array(
     totranslate("Backgammon is one of the oldest known board games."),
     totranslate("The goal is to move checkers around, then off the board. The first player to get all of his checkers off the board wins."),
     totranslate("On your turn, you roll 2 dice, and you can make 2 moves accordingly. You can only move on free positions, meaning positions that are not occupied by 2 or more of your opponent's checkers."),
-),  
-        
+),
+
 
 // Games categories
 //  You can attribute any number of "tags" to your game.

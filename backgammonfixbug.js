@@ -212,19 +212,19 @@ define([
                     for (i = 1; i <= 15; i++) {
                         this.addAnimBoxOnBoard('27-'+i, '27-'+i, myId);
                     }
-					
+
 					if( gamedatas.board[27] )
 					{
 						tokenNb = gamedatas.board[27].token_nb; // board index start at 0
 						this.addRepositoryOnBoard('top', 'yellow', tokenNb, myId);
 					}
-					
+
                     // bottom is red
                     //this.addAnimBoxOnBoard(28, 28, myId);
                     for (i = 1; i <= 15; i++) {
                         this.addAnimBoxOnBoard('28-'+i, '28-'+i, myId);
                     }
-					
+
 					if( gamedatas.board[26] )
 					{
 						tokenNb = gamedatas.board[26].token_nb; // board index start at 0
@@ -1067,7 +1067,7 @@ define([
                         'tokens'
                     );
                 }
-				
+
 				if( $('token_'+tokenId) && $('overall_player_board_' + playerId ) && $('col_'+colId) )
 				{
 					this.placeOnObject( 'token_'+tokenId, 'overall_player_board_' + playerId );
