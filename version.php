@@ -1,1 +1,1 @@
-<?php $game_version_backgammon ="999999-9999";
+<?php $game_version_backgammonfixbug ="999999-9999";

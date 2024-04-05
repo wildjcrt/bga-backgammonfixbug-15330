@@ -9,7 +9,7 @@
 -- See http://en.boardgamearena.com/#!doc/Studio for more information.
 -------
 
-    backgammon_backgammon.tpl
+    backgammonfixbug_backgammonfixbug.tpl
 
     This is the HTML template of your game.
 
@@ -28,7 +28,7 @@
 
 <div id="bg_board">
 
-    <!-- Initialization of block in file backgammon.view.php -->
+    <!-- Initialization of block in file backgammonfixbug.view.php -->
 
     <!-- BEGIN block_square -->
     <div id="col_{col_id}" class="column" style="left:{LEFT}px; top:{TOP}px;">

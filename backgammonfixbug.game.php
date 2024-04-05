@@ -8,7 +8,7 @@
  * See http://en.boardgamearena.com/#!doc/Studio for more information.
  * -----
  *
- * backgammon.game.php
+ * backgammonfixbug.game.php
  *
  * This is the main file for your game logic.
  *
@@ -16,7 +16,7 @@
  *
  */
 /*
-class backgammon
+class backgammonfixbug
 
 protected   function getGameName( )
 protected   function setupNewGame( $players, $options = array() )
@@ -133,7 +133,7 @@ class moveOneColumn
 require_once( APP_GAMEMODULE_PATH.'module/table/table.game.php' );
 
 
-class backgammon extends Table
+class backgammonfixbug extends Table
 {
     function __construct( )
     {
@@ -158,7 +158,7 @@ class backgammon extends Table
 
     protected function getGameName( )
     {
-        return "backgammon";
+        return "backgammonfixbug";
     }
 
     /*
@@ -938,7 +938,7 @@ class backgammon extends Table
 
     /*
         Each time a player is doing some game action, one of the methods below is called.
-        (note: each method below must match an input method in backgammon.action.php)
+        (note: each method below must match an input method in backgammonfixbug.action.php)
     */
 
     /**

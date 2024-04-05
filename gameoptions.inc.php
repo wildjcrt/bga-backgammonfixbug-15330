@@ -11,14 +11,14 @@
  *
  * gameoptions.inc.php
  *
- * backgammon game options description
+ * backgammonfixbug game options description
  *
  * In this file, you can define your game options (= game variants).
  *
  * Note: If your game has no variant, you don't have to modify this file.
  *
  * Note²: All options defined in this file should have a corresponding "game state labels"
- *        with the same ID (see "initGameStateLabels" in backgammon.game.php)
+ *        with the same ID (see "initGameStateLabels" in backgammonfixbug.game.php)
  *
  * !! It is not a good idea to modify this file when a game is running !!
  *

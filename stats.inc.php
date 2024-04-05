@@ -11,7 +11,7 @@
  *
  * stats.inc.php
  *
- * backgammon game statistics description
+ * backgammonfixbug game statistics description
  *
  */
 

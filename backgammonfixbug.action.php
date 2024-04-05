@@ -8,21 +8,21 @@
  * See http://en.boardgamearena.com/#!doc/Studio for more information.
  * -----
  *
- * backgammon.action.php
+ * backgammonfixbug.action.php
  *
- * backgammon main action entry point
+ * backgammonfixbug main action entry point
  *
  *
  * In this file, you are describing all the methods that can be called from your
  * user interface logic (javascript).
  *
  * If you define a method "myAction" here, then you can call it from your javascript code with:
- * this.ajaxcall( "/backgammon/backgammon/myAction.html", ...)
+ * this.ajaxcall( "/backgammonfixbug/backgammonfixbug/myAction.html", ...)
  *
  */
 
 
-class action_backgammon extends APP_GameAction
+class action_backgammonfixbug extends APP_GameAction
 {
 // Constructor: please do not modify
     public function __default()
@@ -34,7 +34,7 @@ class action_backgammon extends APP_GameAction
         }
         else
         {
-            $this->view = "backgammon_backgammon";
+            $this->view = "backgammonfixbug_backgammonfixbug";
             self::trace( "Complete reinitialization of board game" );
         }
     }

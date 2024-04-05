@@ -7,9 +7,9 @@
  * See http://en.boardgamearena.com/#!doc/Studio for more information.
  * -----
  *
- * backgammon.js
+ * backgammonfixbug.js
  *
- * backgammon user interface script
+ * backgammonfixbug user interface script
  *
  * In this file, you are describing the logic of your user interface, in Javascript language.
  *
@@ -62,9 +62,9 @@ define([
         "ebg/counter"
     ],
     function (dojo, declare) {
-        return declare("bgagame.backgammon", ebg.core.gamegui, {
+        return declare("bgagame.backgammonfixbug", ebg.core.gamegui, {
             constructor: function(){
-                //console.log('backgammon constructor');
+                //console.log('backgammonfixbug constructor');
 
                 // Here, you can init the global variables of your user interface
                 // Example:
@@ -263,7 +263,7 @@ define([
 
                 // check if player can play
                 if (this.isCurrentPlayerActive() && !gamedatas.isMovePossible) {
-                    this.ajaxcall( "/backgammon/backgammon/cantPlayFromJs.html", {}, this, function( result ) {}, function( is_error) {});
+                    this.ajaxcall( "/backgammonfixbug/backgammonfixbug/cantPlayFromJs.html", {}, this, function( result ) {}, function( is_error) {});
                 }
 
                 // clean board from all hints, etc...
@@ -549,7 +549,7 @@ define([
                 this.removeHintForColumn();
 
                 if (startCol > 0 && endCol > 0 && diceIds > 0) {
-                    this.ajaxcall("/backgammon/backgammon/moveChecker.html",
+                    this.ajaxcall("/backgammonfixbug/backgammonfixbug/moveChecker.html",
                         {
                             lock: true,
                             start_col_num: startCol,
@@ -646,7 +646,7 @@ define([
              In this method, you associate each of your game notifications with your local method to handle it.
 
              Note: game notification names correspond to "notifyAllPlayers" and "notifyPlayer" calls in
-             your backgammon.game.php file.
+             your backgammonfixbug.game.php file.
 
              */
             setupNotifications: function()

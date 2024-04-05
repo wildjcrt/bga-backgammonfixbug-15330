@@ -10,7 +10,7 @@
  *
  * states.inc.php
  *
- * backgammon game states description
+ * backgammonfixbug game states description
  *
  */
 

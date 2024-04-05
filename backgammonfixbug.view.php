@@ -8,7 +8,7 @@
  * See http://en.boardgamearena.com/#!doc/Studio for more information.
  * -----
  *
- * backgammon.view.php
+ * backgammonfixbug.view.php
  *
  * This is your "view" file.
  *
@@ -17,7 +17,7 @@
  * _ when a player refreshes the game page (F5)
  *
  * "build_page" method allows you to dynamically modify the HTML generated for the game interface. In
- * particular, you can set here the values of variables elements defined in backgammon_backgammon.tpl (elements
+ * particular, you can set here the values of variables elements defined in backgammonfixbug_backgammonfixbug.tpl (elements
  * like {MY_VARIABLE_ELEMENT}), and insert HTML block elements (also defined in your HTML template file)
  *
  * Note: if the HTML of your game interface is always the same, you don't have to place anything here.
@@ -26,10 +26,10 @@
 
 require_once( APP_BASE_PATH."view/common/game.view.php" );
 
-class view_backgammon_backgammon extends game_view
+class view_backgammonfixbug_backgammonfixbug extends game_view
 {
     function getGameName() {
-        return "backgammon";
+        return "backgammonfixbug";
     }
 
     function build_page( $viewArgs )
@@ -52,11 +52,11 @@ class view_backgammon_backgammon extends game_view
         $margin_left = 40;
 
         // Manage squares blocks
-        $this->page->begin_block( "backgammon_backgammon", "block_square" );
+        $this->page->begin_block( "backgammonfixbug_backgammonfixbug", "block_square" );
         // for hints
-        $this->page->begin_block( "backgammon_backgammon", "block_hints" );
+        $this->page->begin_block( "backgammonfixbug_backgammonfixbug", "block_hints" );
         // for anim
-        $this->page->begin_block( "backgammon_backgammon", "block_checker_anim" );
+        $this->page->begin_block( "backgammonfixbug_backgammonfixbug", "block_checker_anim" );
 
         // top col 1 to 6
         $count = 1;
@@ -176,7 +176,7 @@ class view_backgammon_backgammon extends game_view
         }
 
         // bloc for the pit
-        $this->page->begin_block( "backgammon_backgammon", "block_square_pit" );
+        $this->page->begin_block( "backgammonfixbug_backgammonfixbug", "block_square_pit" );
 
         // top pit col 25
         $this->page->insert_block(
@@ -215,7 +215,7 @@ class view_backgammon_backgammon extends game_view
         );
 
         // dice area
-        $this->page->begin_block( "backgammon_backgammon", "block_dice" );
+        $this->page->begin_block( "backgammonfixbug_backgammonfixbug", "block_dice" );
         $this->page->insert_block(
             "block_dice",
             array(
@@ -250,7 +250,7 @@ class view_backgammon_backgammon extends game_view
         );
 
         // free checker hint
-        $this->page->begin_block( "backgammon_backgammon", "block_free_hint" );
+        $this->page->begin_block( "backgammonfixbug_backgammonfixbug", "block_free_hint" );
         $this->page->insert_block(
             "block_free_hint",
             array(
@@ -270,7 +270,7 @@ class view_backgammon_backgammon extends game_view
 
 
         // free checker repository
-        $this->page->begin_block( "backgammon_backgammon", "block_free_repository" );
+        $this->page->begin_block( "backgammonfixbug_backgammonfixbug", "block_free_repository" );
         $this->page->insert_block(
             "block_free_repository",
             array(
