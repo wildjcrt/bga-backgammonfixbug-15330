@@ -37,6 +37,8 @@ CREATE TABLE IF NOT EXISTS board (
   col_id int(2) unsigned DEFAULT 0,
   token_nb int(2) unsigned DEFAULT 0,
   player_id int(10) unsigned DEFAULT 0,
+  prev_token_nb int(2) unsigned DEFAULT 0,
+  prev_player_id int(10) unsigned DEFAULT 0,
   PRIMARY KEY (col_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
