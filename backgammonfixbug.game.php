@@ -200,7 +200,7 @@ class backgammonfixbug extends Table
         self::reloadPlayersBasicInfos();
 
         // Init the board
-        $sql = "INSERT INTO board (col_id, token_nb, player_id) VALUES ";
+        $sql = "INSERT INTO board (col_id, token_nb, player_id, prev_token_nb, prev_player_id) VALUES ";
         $sql_values = array();
         for ($i=0; $i < 28; $i++) {
             $col_id = $i+1;
@@ -259,7 +259,7 @@ class backgammonfixbug extends Table
                     $player_id = 0;
                     break;
             }
-            $sql_values[] = "($col_id, $token_nb, $player_id)";
+            $sql_values[] = "($col_id, $token_nb, $player_id, $token_nb, $player_id)";
         }
         $sql .= implode( $sql_values, ',' );
         self::DbQuery( $sql );
