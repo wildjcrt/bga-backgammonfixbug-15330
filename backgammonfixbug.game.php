@@ -24,30 +24,30 @@ protected   function getAllDatas()
             function getGameProgression()
             function getBoard()
             function getNbRepositoryForPlayerId($in_player_id = 0)  * return the number of checkers in repository for player
-public      function getDiceInfo()	                                *  return an array of dice info from DB dice1, dice2, dice3, dice4, dice1_usable, dice2_usable, dice3_usable, dice4_usable
-private     function rollDice($forbidDouble = false)	            *  Roll new dice and notify players that dice has been rolled
-public      function getPlayerColor($in_player_id)	                *  return player color in DB from playerId
-public      function getOtherPlayerId($in_player_id)	            *  we got the id of a player, return the id of the other player
-            function getPlayerPitNum($inPlayerId)	                *  return pit number for player Id 25=yellow, 26=red, 0 otherwise
-            function getPlayerRepoNum($inPlayerId)	                *  return the player repository number for playerId 27=red 28=yellow 0=otherwise
-            function getPitColId($in_player_id)	                    *  same as getPlayerPitNum
-            function getPlayerInfo($in_player_id)	                *  return an array of the player info from DB player_id, player_name, player_score, player_score_aux, player_color
-public      function playerHasTokenInPit($in_player_id)	            *  return true if player has token in pit
-            function diceValueList()	                            *  Return an array of dice values [1=>3, 2=>6, 3=>0, 4=>0]	*  If dice not usable, value is 0
-            function updateBoardDb($colNum, $tokenNb, $playerId)	*  Update board DB with datas $colNum, $tokenNb, $playerId
-            function diceIdsToList($diceIds)	                    *  Return an array from diceIds : 123 => [1, 2, 3]
-            function setDiceUnusable($diceIds)	                    *  Put $diceIds unusable in DB (ex : 123)
-            function existValidMoveInMoveList($moveList)	        *  return true if there is a successfull move in the movelist
-            function getNbTokenInPit($playerId)	                    *  Return the number of token in pit from DB for player $playerId
-            function getDiceListValueFromUsable($diceUsableList)	*  From list dice1, dice1_usable etc... return list of all dices	*  array(1 => 4, 2 => 3, 3 => 0, 4 => 0)	*  0 if dice is not usable
-            function message($txt, $color='white')	                *  notify all player a message in a textarea
-            function moveCheckerGame($startColNum, $destinationColNum, $playerId, $diceUsedIds)	        *  Client send data for moving a checker
-            function cantPlayFromJsGame()	                        *  client send a cant play at JSsetup (should not happened)
-            function argPlayerTurn()	                            *  arg for playerTurn (no args)
-            function argSelectColumn()	                            *  Return arguments for the select column state : myColor pitColId mustPlayPit dice1Usable dice2Usable dice3Usable dice4Usable moveList
-            function stPlayerTurn()	                                *  new player turn, roll dice, check if move avaliable and go to the appropriate state
-            function stNextPlayer()	                                *  enter in state nextPlayer, change the active player and initiate his turn
-            function cantPlay()	                                    *  notify active player cannot play, and go to the nextPlayer state
+public      function getDiceInfo()                                    *  return an array of dice info from DB dice1, dice2, dice3, dice4, dice1_usable, dice2_usable, dice3_usable, dice4_usable
+private     function rollDice($forbidDouble = false)                *  Roll new dice and notify players that dice has been rolled
+public      function getPlayerColor($in_player_id)                    *  return player color in DB from playerId
+public      function getOtherPlayerId($in_player_id)                *  we got the id of a player, return the id of the other player
+            function getPlayerPitNum($inPlayerId)                    *  return pit number for player Id 25=yellow, 26=red, 0 otherwise
+            function getPlayerRepoNum($inPlayerId)                    *  return the player repository number for playerId 27=red 28=yellow 0=otherwise
+            function getPitColId($in_player_id)                        *  same as getPlayerPitNum
+            function getPlayerInfo($in_player_id)                    *  return an array of the player info from DB player_id, player_name, player_score, player_score_aux, player_color
+public      function playerHasTokenInPit($in_player_id)                *  return true if player has token in pit
+            function diceValueList()                                *  Return an array of dice values [1=>3, 2=>6, 3=>0, 4=>0]    *  If dice not usable, value is 0
+            function updateBoardDb($colNum, $tokenNb, $playerId)    *  Update board DB with datas $colNum, $tokenNb, $playerId
+            function diceIdsToList($diceIds)                        *  Return an array from diceIds : 123 => [1, 2, 3]
+            function setDiceUnusable($diceIds)                        *  Put $diceIds unusable in DB (ex : 123)
+            function existValidMoveInMoveList($moveList)            *  return true if there is a successfull move in the movelist
+            function getNbTokenInPit($playerId)                        *  Return the number of token in pit from DB for player $playerId
+            function getDiceListValueFromUsable($diceUsableList)    *  From list dice1, dice1_usable etc... return list of all dices    *  array(1 => 4, 2 => 3, 3 => 0, 4 => 0)    *  0 if dice is not usable
+            function message($txt, $color='white')                    *  notify all player a message in a textarea
+            function moveCheckerGame($startColNum, $destinationColNum, $playerId, $diceUsedIds)            *  Client send data for moving a checker
+            function cantPlayFromJsGame()                            *  client send a cant play at JSsetup (should not happened)
+            function argPlayerTurn()                                *  arg for playerTurn (no args)
+            function argSelectColumn()                                *  Return arguments for the select column state : myColor pitColId mustPlayPit dice1Usable dice2Usable dice3Usable dice4Usable moveList
+            function stPlayerTurn()                                    *  new player turn, roll dice, check if move avaliable and go to the appropriate state
+            function stNextPlayer()                                    *  enter in state nextPlayer, change the active player and initiate his turn
+            function cantPlay()                                        *  notify active player cannot play, and go to the nextPlayer state
             function zombieTurn( $state, $active_player )
             function playerWon($playerId)
 
@@ -483,15 +483,15 @@ class backgammon extends Table
             "rollDiceDone",
             clienttranslate( '${player_name} roll dice and get ${dice1_value} and ${dice2_value} ${newline} ${additional}' ),
             array(
-				'i18n' => array( 'additional' ),
+                'i18n' => array( 'additional' ),
                 'player_name' => self::getActivePlayerName(),
                 'dice1_value' => $dice1_value,
                 'dice2_value' => $dice2_value,
                 'dice3_value' => $dice3_value,
                 'dice4_value' => $dice4_value,
-				'newline' => $additional_greatings_text ? '<br/>' : '',
-				'additional' => $additional_greatings_text ? clienttranslate("It's a double !") : '',
-		)
+                'newline' => $additional_greatings_text ? '<br/>' : '',
+                'additional' => $additional_greatings_text ? clienttranslate("It's a double !") : '',
+        )
         );
 
         if ($dice1_value == $dice2_value) {
@@ -908,17 +908,17 @@ class backgammon extends Table
             $sql = "SELECT player_id, token_nb FROM repository";
             $repoInfoList = $this->getObjectListFromDB($sql);
 
-			foreach (array( "", "zz_replay1_", "zz_replay2_", "zz_replay3_", "zz_savepoint_" ) as $prefix)
-			{
-				for ($i = 0; $i < count($repoInfoList); $i++) {
-					$sql = "UPDATE ".$prefix."board SET token_nb = ".$repoInfoList[$i]['token_nb']."
-								WHERE col_id >= 27
-								AND player_id = ".$repoInfoList[$i]['player_id'];
-					self::DbQuery($sql);
-				}
+            foreach (array( "", "zz_replay1_", "zz_replay2_", "zz_replay3_", "zz_savepoint_" ) as $prefix)
+            {
+                for ($i = 0; $i < count($repoInfoList); $i++) {
+                    $sql = "UPDATE ".$prefix."board SET token_nb = ".$repoInfoList[$i]['token_nb']."
+                                WHERE col_id >= 27
+                                AND player_id = ".$repoInfoList[$i]['player_id'];
+                    self::DbQuery($sql);
+                }
 
-			}
-		}
+            }
+        }
     }
 
 
@@ -1057,7 +1057,7 @@ class backgammon extends Table
                 "checkerMoved",
                 $textMessage,
                 array(
-					'i18n' => array( 'additional' ),
+                    'i18n' => array( 'additional' ),
                     'activePlayerId' => $playerId,
                     'passivePLayerId' => $passivePlayerId,
                     'player_name' => self::getActivePlayerName(),

@@ -213,11 +213,11 @@ define([
                         this.addAnimBoxOnBoard('27-'+i, '27-'+i, myId);
                     }
 
-					if( gamedatas.board[27] )
-					{
-						tokenNb = gamedatas.board[27].token_nb; // board index start at 0
-						this.addRepositoryOnBoard('top', 'yellow', tokenNb, myId);
-					}
+                    if( gamedatas.board[27] )
+                    {
+                        tokenNb = gamedatas.board[27].token_nb; // board index start at 0
+                        this.addRepositoryOnBoard('top', 'yellow', tokenNb, myId);
+                    }
 
                     // bottom is red
                     //this.addAnimBoxOnBoard(28, 28, myId);
@@ -225,11 +225,11 @@ define([
                         this.addAnimBoxOnBoard('28-'+i, '28-'+i, myId);
                     }
 
-					if( gamedatas.board[26] )
-					{
-						tokenNb = gamedatas.board[26].token_nb; // board index start at 0
-						this.addRepositoryOnBoard('bottom', 'red', tokenNb, myId);
-					}
+                    if( gamedatas.board[26] )
+                    {
+                        tokenNb = gamedatas.board[26].token_nb; // board index start at 0
+                        this.addRepositoryOnBoard('bottom', 'red', tokenNb, myId);
+                    }
                 }
 
                 // display player panel
@@ -1068,12 +1068,12 @@ define([
                     );
                 }
 
-				if( $('token_'+tokenId) && $('overall_player_board_' + playerId ) && $('col_'+colId) )
-				{
-					this.placeOnObject( 'token_'+tokenId, 'overall_player_board_' + playerId );
-					this.slideToObject( 'token_'+tokenId, 'col_'+colId ).play();
-				}
-			},
+                if( $('token_'+tokenId) && $('overall_player_board_' + playerId ) && $('col_'+colId) )
+                {
+                    this.placeOnObject( 'token_'+tokenId, 'overall_player_board_' + playerId );
+                    this.slideToObject( 'token_'+tokenId, 'col_'+colId ).play();
+                }
+            },
 
             addAnimBoxOnBoard: function(colId, animBoxId, playerId)
             {
