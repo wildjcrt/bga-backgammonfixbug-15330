@@ -1137,12 +1137,12 @@ class backgammonfixbug extends Table
                 else {
                     // no more move bro
                     // self::message("no more move bro");
-                    self::cantPlay();
+                    $this->gamestate->nextState('noMoreDice');
                 }
             } else {
                 // no more dice
                 // self::message("no more dice");
-                $this->gamestate->nextState('nextPlayer');
+                $this->gamestate->nextState('noMoreDice');
             }
         } else {
             // some kind of error of hack
@@ -1342,7 +1342,7 @@ class backgammonfixbug extends Table
             } else {
                 // entering state cannot play
                 // self::message("stPlayerTurn tu peux pas jouer, dsl");
-                self::cantPlay();
+                $this->gamestate->nextState('noMoreDice');
             }
         }
     }

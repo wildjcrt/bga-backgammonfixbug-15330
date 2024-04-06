@@ -262,9 +262,9 @@ define([
                 this.setupNotifications();
 
                 // check if player can play
-                if (this.isCurrentPlayerActive() && !gamedatas.isMovePossible) {
-                    this.ajaxcall( "/backgammonfixbug/backgammonfixbug/cantPlayFromJs.html", {}, this, function( result ) {}, function( is_error) {});
-                }
+                // if (this.isCurrentPlayerActive() && !gamedatas.isMovePossible) {
+                //     this.ajaxcall( "/backgammonfixbug/backgammonfixbug/cantPlayFromJs.html", {}, this, function( result ) {}, function( is_error) {});
+                // }
 
                 // clean board from all hints, etc...
                 this.removeHintForColumn();
@@ -361,6 +361,7 @@ define([
                         this.removeHintForColumn();
                         break;
 
+                    case 'noMoreDice':
                     case 'dummmy':
                         break;
 
@@ -375,12 +376,14 @@ define([
             //
             onUpdateActionButtons: function( stateName, args )
             {
-                //console.log( 'onUpdateActionButtons: '+stateName );
+                // console.log( 'onUpdateActionButtons: '+stateName );
 
                 if( this.isCurrentPlayerActive() )
                 {
                     switch( stateName )
                     {
+                        case 'noMoreDice':
+                            this.addActionButton( 'button_done', _('Done'), '' );
                         /*
                          Example:
 
@@ -394,7 +397,10 @@ define([
                          break;
                          */
                     }
+
+                    this.addActionButton( 'button_undo', _('Undo'), '' );
                 }
+
             },
 
             /**

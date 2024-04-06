@@ -77,6 +77,15 @@ $machinestates = array(
         "type" => "activeplayer",
         "args" => "argSelectColumn",
         "possibleactions" => array( "selectColumn" ),    // possible actions for player
+        "transitions" => array( "selectColumn" => 20, "noMoreDice" => 30 )
+    ),
+
+    // 30 - no more dice and wait for player to check done
+    30 => array(
+        "name" => "noMoreDice",
+        "description" => clienttranslate('${actplayer} must select a column.'),
+        "descriptionmyturn" => clienttranslate('${you} have no dice to use. Click "Done" to finish turn.'),
+        "type" => "activeplayer",
         "transitions" => array( "rollDice" => 10, "selectColumn" => 20, "nextPlayer" => 40, "zombiePass" => 40, "gameEnd" => 99 )
     ),
 
