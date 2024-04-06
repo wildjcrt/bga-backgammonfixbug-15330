@@ -42,6 +42,8 @@ public      function playerHasTokenInPit($in_player_id)                *  return
             function getDiceListValueFromUsable($diceUsableList)    *  From list dice1, dice1_usable etc... return list of all dices    *  array(1 => 4, 2 => 3, 3 => 0, 4 => 0)    *  0 if dice is not usable
             function message($txt, $color='white')                    *  notify all player a message in a textarea
             function moveCheckerGame($startColNum, $destinationColNum, $playerId, $diceUsedIds)            *  Client send data for moving a checker
+            function resetToPrevBoardJsGame()                          *  Reset board table token_nb=prev_token_nb, player_id=prev_player_id
+            function onConfirmToEndTurnJsGame()                        *  Confirm to end turn, sync board records and change to next player
             function cantPlayFromJsGame()                            *  client send a cant play at JSsetup (should not happened)
             function argPlayerTurn()                                *  arg for playerTurn (no args)
             function argSelectColumn()                                *  Return arguments for the select column state : myColor pitColId mustPlayPit dice1Usable dice2Usable dice3Usable dice4Usable moveList
@@ -1155,6 +1157,42 @@ class backgammonfixbug extends Table
             );
             // self::message("SOME KIND OF HACK MAN or click too fast, anyway");
         }
+    }
+
+    /**
+     * Reset board table token_nb=prev_token_nb, player_id=prev_player_id
+     */
+    function resetToPrevBoardJsGame()
+    {
+        $sql = "UPDATE board SET token_nb = prev_token_nb, player_id = prev_player_id";
+        self::DbQuery( $sql );
+        
+        $sql = "UPDATE dice_result SET dice1_usable = 1 WHERE dice1 != 0";
+        self::DbQuery( $sql );
+          
+        $sql = "UPDATE dice_result SET dice2_usable = 1 WHERE dice2 != 0";
+        self::DbQuery( $sql );
+          
+        $sql = "UPDATE dice_result SET dice3_usable = 1 WHERE dice3 != 0";
+        self::DbQuery( $sql );
+          
+        $sql = "UPDATE dice_result SET dice4_usable = 1 WHERE dice4 != 0";
+        self::DbQuery( $sql );
+          
+        $this->gamestate->nextState('selectColumn');
+        self::reloadPlayersBasicInfos();
+    }
+
+    /**
+     * Confirm to end turn, sync board records and change to next player
+     */
+    function onConfirmToEndTurnJsGame()
+    {
+        $sql = "UPDATE board SET prev_token_nb = token_nb, prev_player_id = player_id";
+        self::DbQuery( $sql );
+        self::reloadPlayersBasicInfos();
+
+        $this->gamestate->nextState('nextPlayer');
     }
 
     /**
