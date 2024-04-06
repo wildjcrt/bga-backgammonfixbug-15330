@@ -27,6 +27,8 @@
  onUpdateActionButtons: function( stateName, args )
  onSelectColumn: function (evt)
  moveChecker: function(startCol, endCol, diceIds)
+ onUndo: function()
+ onDone: function()
  onFreeChecker: function(evt)
  onColumnMouseOver: function(evt)
  onFreeHintMouseOver: function(evt)
@@ -383,7 +385,7 @@ define([
                     switch( stateName )
                     {
                         case 'noMoreDice':
-                            this.addActionButton( 'button_done', _('Done'), '' );
+                            this.addActionButton( 'button_done', _('Done'), 'onDone' );
                         /*
                          Example:
 
@@ -398,7 +400,7 @@ define([
                          */
                     }
 
-                    this.addActionButton( 'button_undo', _('Undo'), '' );
+                    this.addActionButton( 'button_undo', _('Undo'), 'onUndo' );
                 }
 
             },
@@ -570,6 +572,18 @@ define([
                         }
                     );
                 }
+            },
+
+            // Reset all moves to beginning of this turn
+            onUndo: function()
+            {
+                this.ajaxcall( "/backgammonfixbug/backgammonfixbug/resetToPrevBoardJs.html", {}, this, function( result ) { history.go(0) }, function( is_error) {})
+            },
+
+            // Confirm to end turn
+            onDone: function()
+            {
+                this.ajaxcall( "/backgammonfixbug/backgammonfixbug/onConfirmToEndTurnJs.html", {}, this, function( result ) {}, function( is_error) {})
             },
 
             // we click to free a checker

@@ -56,6 +56,26 @@ class action_backgammonfixbug extends APP_GameAction
     }
 
     /**
+     * Reset all moves to beginning of this turn
+     */
+    public function resetToPrevBoardJs()
+    {
+        self::setAjaxMode();
+        $this->game->resetToPrevBoardJsGame();
+        self::ajaxResponse();
+    }
+
+    /**
+     * Confirm to end turn
+     */
+    public function onConfirmToEndTurnJs()
+    {
+        self::setAjaxMode();
+        $this->game->onConfirmToEndTurnJsGame();
+        self::ajaxResponse();
+    }
+
+    /**
      * Player cant play
      */
     public function cantPlayFromJs()
